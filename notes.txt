@@ -1,0 +1,9 @@
+ json-server db.json
+
+ json-server db.json --watch
+
+ https://developer.mozilla.org/es/docs/Web/HTTP/Status
+
+ ng serve --port=3000
+
+ 
