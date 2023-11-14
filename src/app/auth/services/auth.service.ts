@@ -13,7 +13,7 @@ import { selectAuthUser } from 'src/app/store/auth/auth.selectors';
   providedIn: 'root'
 })
 export class AuthService {
-  // private _authUser$ = new BehaviorSubject<User | null>(null);
+  // private _authUser$ = new BehaviorSubject<User | null>(null); authservice
 
   public authUser$ = this.store.select(selectAuthUser)
 

@@ -16,14 +16,14 @@ export class LoginComponent {
     email: this.emailControl,
     password: this.passwordControl,
   })
-  constructor(private authservice: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   login(): void {
 
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
     } else { 
-      this.authservice.login(this.loginForm.getRawValue());
+      this.authService.login(this.loginForm.getRawValue());
     }
   }
 }

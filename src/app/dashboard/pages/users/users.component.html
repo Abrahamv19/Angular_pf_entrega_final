@@ -11,7 +11,7 @@
 
 <app-users-table [dataSource]="(users$ | async) || []"
 (editUser)="onEditUser($event)"
->
+(deleteUser)="onDeleteUser($event)">
 </app-users-table>
 
 

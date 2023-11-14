@@ -12,6 +12,7 @@ import { MatTableModule } from '@angular/material/table';
 import { FormErrorsPipe } from './pipes/form-errors.pipe';
 import { HeadlineDirective } from './directives/headline.directive';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -37,6 +38,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     FormErrorsPipe,
     HeadlineDirective,
     MatDatepickerModule,
+    MatProgressSpinnerModule,
     
   ]
 })
