@@ -9,13 +9,15 @@ import { EnrollmentEffects } from './store/enrollment.effects';
 import { StoreModule } from '@ngrx/store';
 import { enrollmentFeature } from './store/enrollment.reducer';
 import { EnrollmentsTableComponent } from './components/enrollments-table/enrollments-table.component';
+import { EnrollmentDialogComponent } from './components/enrollment-dialog/enrollment-dialog.component';
 
 
 
 @NgModule({
   declarations: [
     EnrollmentsComponent,
-    EnrollmentsTableComponent
+    EnrollmentsTableComponent,
+    EnrollmentDialogComponent
   ],
   imports: [
     CommonModule,

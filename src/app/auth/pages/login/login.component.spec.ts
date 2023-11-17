@@ -2,6 +2,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { LoginComponent } from './login.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { provideMockStore, MockStore } from '@ngrx/store/testing';
+import { StoreModule } from '@ngrx/store';
+import { appReducer } from 'src/app/store';
 
 
 describe('LoginComponent', () => {
@@ -10,7 +13,8 @@ describe('LoginComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [LoginComponent],
-      imports: [HttpClientTestingModule, SharedModule],
+      imports: [HttpClientTestingModule, SharedModule, StoreModule.forRoot(appReducer, {})],
+      providers: [provideMockStore({})],
     });
     const fixture = TestBed.createComponent(LoginComponent);
     loginComponent = fixture.componentInstance;

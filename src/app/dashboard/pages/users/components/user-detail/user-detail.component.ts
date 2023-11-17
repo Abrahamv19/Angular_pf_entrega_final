@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserDetailComponent {
   constructor(private activateRoute: ActivatedRoute) {
-    console.log(this.activateRoute.snapshot.params['id']);
+    // console.log(this.activateRoute.snapshot.params['id']);
   }
 
 }

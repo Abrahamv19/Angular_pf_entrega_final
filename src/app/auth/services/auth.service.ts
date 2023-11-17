@@ -32,10 +32,14 @@ export class AuthService {
     )
     .subscribe({
       next:(response) => {
-        if(!response.length) {
+        const authUser = response[0];
+
+        if(!authUser) {
           alert('Invalid username or password')
-        }else {
-          const authUser = response[0];
+        } else if(authUser?.role === 'STUDENT') {
+          alert('Students are not authorized to access')
+        } else {
+          
           this.handleAuthUser(authUser);
           this.router.navigate(['dashboard/home']); 
         }
