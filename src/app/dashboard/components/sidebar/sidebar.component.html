@@ -12,16 +12,21 @@
         <mat-list-item routerLink="home" routerLinkActive #homeLink="routerLinkActive" [activated]="homeLink.isActive">
             <a>Inicio</a>
         </mat-list-item>
+        
         <!-- <mat-list-item [activated]="true"> -->
         <mat-list-item routerLink="users" routerLinkActive #usuariosLink="routerLinkActive" [activated]="usuariosLink.isActive">
             <a>Usuarios</a>
         </mat-list-item>
+
         <mat-list-item routerLink="courses" routerLinkActive #coursesLink="routerLinkActive" [activated]="coursesLink.isActive">
             <a>Cursos</a>
         </mat-list-item>
-        <mat-list-item routerLink="students" routerLinkActive #studentsLink="routerLinkActive" [activated]="studentsLink.isActive">
+
+        <!-- desactivo link de alumnos en sidebar, para dejarlos en link de users -->
+        <!-- <mat-list-item routerLink="students" routerLinkActive #studentsLink="routerLinkActive" [activated]="studentsLink.isActive">
             <a>Alumnos</a>
-        </mat-list-item>
+        </mat-list-item> -->
+
         <mat-list-item routerLink="enrollments" routerLinkActive #enrollmentsLink="routerLinkActive" [activated]="enrollmentsLink.isActive">
             <a>Inscripciones</a>
         </mat-list-item>

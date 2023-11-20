@@ -23,7 +23,7 @@ export class UsersTableComponent {
   editUser = new EventEmitter<User>();
 
   // displayedColumns = ['id', 'fullname', 'email', 'course', 'classYear', 'actions'];
-  displayedColumns = ['id', 'fullname', 'email', 'actions'];
+  displayedColumns = ['id', 'fullname', 'email', 'role', 'actions'];
 
   // userRole$: Observable< UserRole | undefined>;
   userRole$: Observable< UserRole| undefined>;

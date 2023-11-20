@@ -1,52 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Course } from './models';
-import { Observable, of } from 'rxjs';
+import { Observable, concatMap, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.local';
 
 @Injectable({ providedIn: 'root' })
 export class CoursesService {
-  courses: Course[] = [
-    {
-      id: 1,
-      name: 'Angular',
-      endDate: new Date(),
-      startDate: new Date(),
-    },
-    {
-      id: 2,
-      name: 'Vue',
-      endDate: new Date(),
-      startDate: new Date(),
-    },
-    {
-        id: 3,
-        name: 'React',
-        startDate: new Date(),
-        endDate: new Date(),
-    },
-  ];
+  constructor(private httpClient: HttpClient) {}
 
-  getCourses$(): Observable<Course[]> {
-    return of(this.courses);
+  getCourses(): Observable<Course[]> {
+    return this.httpClient.get<Course[]>(`${environment.baseUrl}/courses`);
   }
 
-  createCourse$(payload: Course): Observable<Course[]> {
-    this.courses.push(payload);
-    return of([...this.courses]);
+  createCourse(payload: Course): Observable<Course[]> {
+    return this.httpClient
+      .post<Course>(`${environment.baseUrl}/courses`, payload)
+      .pipe(concatMap(() => this.getCourses()));
   }
 
-  editCourse$(id: number, payload: Course): Observable<Course[]> {
-    return of(
-      this.courses.map((c) => (c.id === id ? { ...c, ...payload } : c))
-    );
+  updateCourse(courseId: number, payload: Course): Observable<Course[]> {
+    return this.httpClient
+      .put<Course>(`${environment.baseUrl}/courses/${courseId}`, payload)
+      .pipe(concatMap(() => this.getCourses()));
   }
 
-  deleteCourse$(id: number): Observable<Course[]> {
-    this.courses = this.courses.filter((c) => c.id !== id);
-    return of(this.courses);
-  }
-
-  getCourseById$(id: number): Observable<Course | undefined> {
-    return of(this.courses.find((c) => c.id === id));
+  deleteCourse(id: number): Observable<Course[]> {
+    return this.httpClient
+    .delete<Object>(`${environment.baseUrl}/courses/${id}`)
+    .pipe(concatMap(() => this.getCourses())
+    )
   }
 }
 

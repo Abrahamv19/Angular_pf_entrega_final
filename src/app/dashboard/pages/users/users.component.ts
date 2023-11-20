@@ -50,7 +50,7 @@ export class UsersComponent {
     }
 
     onDeleteUser(userId: number): void {
-      if (confirm('Estas seguro de querer borrar este usuario?')) {
+      if (confirm('Are you sure you want to delete this user?')) {
         this.users$ = this.usersService.deleteUser(userId)
       }
     }

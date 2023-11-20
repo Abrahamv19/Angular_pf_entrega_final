@@ -1,7 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CoursesService } from '../../courses.service';
+import { Course } from '../../models';
 
 @Component({
   selector: 'app-courses-dialog',
@@ -9,45 +10,36 @@ import { CoursesService } from '../../courses.service';
   styleUrls: ['./courses-dialog.component.scss'],
 })
 export class CoursesDialogComponent {
-  nameControl = new FormControl('', Validators.required);
-  startDateControl = new FormControl<string|Date>('',{validators: Validators.required});
-  endDateControl = new FormControl<string|Date>('',{validators: Validators.required});
+  courseForm: FormGroup;
 
-  courseForm = new FormGroup({
-    name: this.nameControl,
-    startDate: this.startDateControl,
-    endDate: this.endDateControl,
-  });
-
-  constructor(
+  constructor(private fb: FormBuilder,
     private matDialogRef: MatDialogRef<CoursesDialogComponent>,
-    private coursesService: CoursesService,
-    @Inject(MAT_DIALOG_DATA) private courseId?: number
-  ) {
-    if (courseId) {
-      this.coursesService.getCourseById$(courseId).subscribe({
-        next: (c) => {
-          if (c) {
-            this.courseForm.patchValue(c);
-          }
-        },
+    // RECIBO DATA EN DIALOG
+    @Inject(MAT_DIALOG_DATA) public course?: Course,
+    ) {
+
+      this.courseForm = this.fb.group({
+        name: ['', Validators.required],
+        startDate: ['', Validators.required],
+        endDate: ['', Validators.required],
       });
-    }
-  }
 
-  public get isEditing(): boolean {
-    return !!this.courseId;
-  }
+      if(this.course) {
+        this.courseForm.patchValue(this.course);
+      }
 
-  onSubmit(): void {
-    if (this.courseForm.invalid) {
-      return this.courseForm.markAllAsTouched();
-    } else {
-      // logica para crear un curso
-      this.matDialogRef.close(this.courseForm.value);
     }
-  }
+
+    onSubmit(): void {
+      if (this.courseForm.invalid) {
+        this.courseForm.markAllAsTouched();
+      } else {
+        this.matDialogRef.close(this.courseForm.value);
+      }
+    }
 }
+
+
 
 
 

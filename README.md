@@ -1,27 +1,29 @@
-# PfVasquezPe
+# APLICACION PARA INSCRIPCION DE ALUMNOS EN CURSOS DE UNA ESCUELA ONLINE
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+## PARA ARRANCAR LA APLICACION:
 
-## Development server
+- Una vez clonado el repositorio del frontend:  https://github.com/Abrahamv19/Angular_pf_entrega_final.git, corra el comando: npm install
+- Una vez clonado el repositorio del backend: https://github.com/Abrahamv19/Angular_Json_Server_Api_PF.git, corra el comando: npm install
+- Para arrancar el front corra en comando: ng serve -o
+- Para arrancar el back corra el comando: npm run start
+- Ingrese usuario y contraseña:
+1. Para usuario tipo admin:
+    - ususario: admin1@g.com
+    - contraseña: 123
+2. Para usuario tipo employee:
+    - ususario: employee1@g.com
+    - contraseña: 456
+3. Para usuario tipo student:
+    - ususario: student1@mail.com
+    - contraseña: 789
+- Tambien puede consultar la lista de estudiantes ingresando como usuario admin en el link de usuarios o en la aplicación del backend (Angular_Json_Server_Api_PF) en el archivo db.json.
+- Recuerde las Jerarquias de Usuarios
+    - ADMIN: Pueden agregar, editar y borrar usuarios y cursos.
+    - EMPLOYEE: Solo pueden hacer incripciones de usuarios de tipo STUDENT en los cursos disponibles.
+    - STUDENT: No tiene acceso a la plataforma, necesita un administrador o empleado para inscribirse en algun curso.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## PARA PARAR LA APLICACION
+- En el front ejecute el comando: ctrl + c
+- En el back ejecute el comando: ctrl + c
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

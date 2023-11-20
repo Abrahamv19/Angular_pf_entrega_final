@@ -24,6 +24,7 @@ import { adminGuard } from "../core/guards/admin.guard";
                     },
                     {
                         path: 'courses',
+                        canActivate: [adminGuard],
                         loadChildren: () => import('./pages/courses/courses.module').then((m) => m.CoursesModule),
 
                     },
@@ -35,6 +36,7 @@ import { adminGuard } from "../core/guards/admin.guard";
                     },
                     {
                         path: 'students',
+                        canActivate: [adminGuard],
                         loadChildren: () => import('./pages/students/students.module').then((m) => m.StudentsModule),
 
                     },
