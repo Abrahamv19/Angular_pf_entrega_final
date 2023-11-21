@@ -17,7 +17,7 @@ export const EnrollmentActions = createActionGroup({
     }>(),
     'Load Enrollment Dialog Options Failure': props<{ error: unknown }>(),
     'Create Enrollment': props<{ payload: CreateEnrollmentPayload }>(),
-    // El succes lo manejo con una recaga de la data
+    // El succes lo manejo con una recarga de la data
 
     // Manejo el error para identificar que el error corresponde a la creacion
     'Create Enrollment Failure': props<{ error: unknown }>(),

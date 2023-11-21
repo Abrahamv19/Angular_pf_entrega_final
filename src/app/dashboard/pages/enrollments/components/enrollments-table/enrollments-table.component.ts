@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Enrollment } from '../../models/index';
+import { CreateEnrollmentPayload, Enrollment } from '../../models/index';
 import { selectEnrollments, selectEnrollmentsIsLoading } from '../../store/enrollment.selectors';
 
 @Component({
@@ -10,6 +10,13 @@ import { selectEnrollments, selectEnrollmentsIsLoading } from '../../store/enrol
   styleUrls: ['./enrollments-table.component.scss']
 })
 export class EnrollmentsTableComponent {
+
+  @Input()
+  dataSource: CreateEnrollmentPayload[] = [];
+
+  @Output()
+  deleteEnrollment = new EventEmitter<number>();
+
   displayedColumns = ['id', 'course', 'user', 'actions'];
 
   enrollments$: Observable<Enrollment[]>

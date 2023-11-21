@@ -6,4 +6,6 @@
 
  ng serve --port=3000
 
+ ng serve -o
+
  

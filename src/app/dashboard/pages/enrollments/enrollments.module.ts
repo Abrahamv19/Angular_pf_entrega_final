@@ -12,7 +12,6 @@ import { EnrollmentsTableComponent } from './components/enrollments-table/enroll
 import { EnrollmentDialogComponent } from './components/enrollment-dialog/enrollment-dialog.component';
 
 
-
 @NgModule({
   declarations: [
     EnrollmentsComponent,

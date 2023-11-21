@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EnrollmentsComponent } from './enrollments.component';
 
 const routes: Routes = [
-    {   // /home
+    {   // /enrollments
         path: '',
         component: EnrollmentsComponent
     },

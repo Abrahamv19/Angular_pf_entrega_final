@@ -6,3 +6,9 @@
     // background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
   }
+
+  .centered-div {
+    width: 900px; /* Ancho fijo del div */
+    margin-left: auto;
+    margin-right: auto;
+  }

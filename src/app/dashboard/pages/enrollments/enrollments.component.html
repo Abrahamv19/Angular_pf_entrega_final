@@ -7,6 +7,11 @@
   </button>
 </div>
 
-<app-enrollments-table></app-enrollments-table>
+<app-enrollments-table
+[dataSource]="(enrollments$ | async) || []"
+(deleteEnrollment)="onDeleteEnrollment($event)"
+></app-enrollments-table>
+
+
 
 
